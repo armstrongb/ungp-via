@@ -1,0 +1,26 @@
+/* UN Global Platform */
+/**/
+.ungp-logo {
+  margin: 5px;
+}
+body.ungp .button {
+  display: inline-block;
+    margin: 0;
+    /* padding: 0; */
+    border: 0;
+    border-radius: 0;
+    background: transparent;
+    font-family: inherit;
+    font-size: 1rem;
+    font-weight: 500;
+    line-height: 1.15;
+    text-rendering: optimizeLegibility;
+    vertical-align: top;
+    cursor: pointer;
+
+    padding: .35em 0.5em;
+    border-bottom: .16666667em solid rgba(0,0,0,.6);
+    border-radius: 3px;
+    background: #d0d0d0;
+    color: #222;
+}

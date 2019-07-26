@@ -55,7 +55,7 @@
     <link rel="stylesheet" type="text/css" href="via.css">
   </head>
 
-  <body onload="_via_init()" onresize="_via_update_ui_components()">
+  <body onload="_via_init()" onresize="_via_update_ui_components()" class="ungp">
     <!--
         SVG icon set definitions
         Material icons downloaded from https://material.io/icons
@@ -201,6 +201,7 @@
 
     <div class="top_panel" id="ui_top_panel">
       <!-- menu bar -->
+      <!-- Logo --><a href="https://marketplace.officialstatistics.org"><img src="ungp-swish.svg" alt="UN Global Platform Logo" height="20px" class="ungp-logo" /></a><!--/ Logo -->
       <div class="menubar">
         <ul>
           <li onclick="show_home_panel()" style="cursor:pointer;">Home</li>
@@ -313,19 +314,6 @@
           <span class="text_button" onclick="leftsidebar_toggle()" title="Show/hide this toolbar panel">&ltrif;</span>
         </div>
 
-        <button class="leftsidebar_accordion active">Region Shape</button>
-        <div class="leftsidebar_accordion_panel show">
-          <ul class="region_shape">
-            <li id="region_shape_rect" class="selected" onclick="select_region_shape('rect')" title="Rectangle (Shortcut key 1)"><svg height="32" viewbox="0 0 32 32"><use xlink:href="#shape_rectangle"></use></svg></li>
-            <li id="region_shape_circle" onclick="select_region_shape('circle')" title="Circle (Shortcut key 2)"><svg height="32" viewbox="0 0 32 32"><use xlink:href="#shape_circle"></use></svg></li>
-            <li id="region_shape_ellipse" onclick="select_region_shape('ellipse')" title="Ellipse (Shortcut key 3)"><svg height="32" viewbox="0 0 32 32"><use xlink:href="#shape_ellipse"></use></svg></li>
-            <li id="region_shape_polygon" onclick="select_region_shape('polygon')" title="Polygon (Shortcut key 4)"><svg height="32" viewbox="0 0 32 32"><use xlink:href="#shape_polygon"></use></svg></li>
-            <li id="region_shape_point" onclick="select_region_shape('point')" title="Point (Shortcut key 5)"><svg height="32" viewbox="0 0 32 32"><use xlink:href="#shape_point"></use></svg></li>
-            <li id="region_shape_polyline" onclick="select_region_shape('polyline')" title="Polyline (Shortcut key 6)"><svg height="32" viewbox="0 0 32 32"><use xlink:href="#shape_polyline"></use></svg></li>
-          </ul>
-          <div id="region_info" class="display_none">&nbsp;</div>
-        </div>
-
         <!-- Project -->
         <button class="leftsidebar_accordion active" id="project_panel_title">Project</button>
         <div class="leftsidebar_accordion_panel show" id="img_fn_list_panel">
@@ -351,11 +339,24 @@
           <div id="img_fn_list"></div>
           <p>
             <div class="button_panel">
-              <span class="button" onclick="sel_local_images()" title="Add new file from local disk">Add Files</span>
-              <span class="button" onclick="project_file_add_url_with_input()" title="Add new file using URL">Add URL</span>
-              <span class="button" onclick="project_file_remove_with_confirm()" title="Remove selected file (i.e. file currently being shown) from project">Remove</span>
+              <button class="button" onclick="sel_local_images()" title="Add new file from local disk">Add files</button>
+              <button class="button" onclick="project_file_add_url_with_input()" title="Add new file using URL">Add via URL</button>
+              <button class="button" onclick="project_file_remove_with_confirm()" title="Remove selected file (i.e. file currently being shown) from project">Remove</button>
             </div>
           </p>
+        </div>
+
+        <button class="leftsidebar_accordion active">Region Shape</button>
+        <div class="leftsidebar_accordion_panel show">
+          <ul class="region_shape">
+            <li id="region_shape_rect" class="selected" onclick="select_region_shape('rect')" title="Rectangle (Shortcut key 1)"><svg height="32" viewbox="0 0 32 32"><use xlink:href="#shape_rectangle"></use></svg></li>
+            <li id="region_shape_circle" onclick="select_region_shape('circle')" title="Circle (Shortcut key 2)"><svg height="32" viewbox="0 0 32 32"><use xlink:href="#shape_circle"></use></svg></li>
+            <li id="region_shape_ellipse" onclick="select_region_shape('ellipse')" title="Ellipse (Shortcut key 3)"><svg height="32" viewbox="0 0 32 32"><use xlink:href="#shape_ellipse"></use></svg></li>
+            <li id="region_shape_polygon" onclick="select_region_shape('polygon')" title="Polygon (Shortcut key 4)"><svg height="32" viewbox="0 0 32 32"><use xlink:href="#shape_polygon"></use></svg></li>
+            <li id="region_shape_point" onclick="select_region_shape('point')" title="Point (Shortcut key 5)"><svg height="32" viewbox="0 0 32 32"><use xlink:href="#shape_point"></use></svg></li>
+            <li id="region_shape_polyline" onclick="select_region_shape('polyline')" title="Polyline (Shortcut key 6)"><svg height="32" viewbox="0 0 32 32"><use xlink:href="#shape_polyline"></use></svg></li>
+          </ul>
+          <div id="region_info" class="display_none">&nbsp;</div>
         </div>
 
         <!-- Attributes -->
@@ -367,9 +368,10 @@
           </div>
           <div id="attributes_update_panel">
             <div class="button_panel">
+              <label for="user_input_attribute_id">Attribute name:</label>
               <input style="width:70%" type="text" placeholder="attribute name" id="user_input_attribute_id" value="">
-              <span id="button_add_new_attribute" class="button" onclick="add_new_attribute_from_user_input()" title="Add new attribute">&plus;</span>
-              <span id="button_del_attribute" class="button" onclick="delete_existing_attribute_with_confirm()" title="Delete existing attribute">&minus;</span>
+              <button id="button_add_new_attribute" class="button" onclick="add_new_attribute_from_user_input()" title="Add new attribute">&plus;</button>
+              <button id="button_del_attribute" class="button" onclick="delete_existing_attribute_with_confirm()" title="Delete existing attribute">&minus;</button>
             </div>
             <div class="button_panel" style="margin:0.1rem 0;" >
               <select style="width:100%" id="attributes_name_list" onchange="update_current_attribute_id(this)" title="List of existing attributes"></select>
